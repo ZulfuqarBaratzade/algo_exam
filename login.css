@@ -109,6 +109,12 @@
 .login{
     border: 1px solid;
     display: inline-block;
+    background-color: #0dcaf0;
+    position: relative;
+    left: 50%;
+    padding: 20px;
+    text-align: center;
+
 }
 .login form label{
     display: block;

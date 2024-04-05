@@ -1,0 +1,48 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --linear-grad: linear-gradient(to right, #141E30, #243B55);
+    --grad-clr1: #141E30;
+}
+
+nav {
+    background: var(--linear-grad);
+    /* Use the linear gradient from root */
+    color: #FFF;
+    /* White text color */
+    padding: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0px 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+    /* Inherit color from the navbar background */
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #DDD;
+    /* Lighter shade on hover */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}

@@ -14,10 +14,11 @@ nav {
     /* Use the linear gradient from root */
     color: #FFF;
     /* White text color */
-    padding: 15px 0px;
+    padding: 20px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    justify-content: right;
 }
 
 nav ul {
@@ -45,4 +46,71 @@ nav a:hover {
 
 body {
     font-family: 'Poppins', sans-serif;
+}
+.container{
+    height: 100vh;
+    background: #f6f5f7;
+    display: grid;
+    place-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+.sign-up-container{
+    border: 1px solid;
+}
+form{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:0px 50px;
+
+}
+
+h1{
+    color: var(--grad-clr1);
+}
+input{
+    width: 100%;
+    padding:12px 15px;
+    background-color: #f3f3f3;
+    border: none;
+    outline: none;
+
+}
+label{
+    position: absolute;
+    left: 50%;
+    top:100%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background: var(--linear-grad);
+    transition: 0.3s;
+}
+input:focus ~ label{
+    width: 100%;
+
+}
+a{
+    color: #333;
+    font-size:14px;
+    text-decoration: none;
+    margin:15px 0px;
+}
+a.forgot{
+    padding-bottom: 3px;
+    border-bottom: 2px solid #EEE;
+}
+button{
+    border-radius: 20px;
+    border: 1px solid var(--grad-clr1);
+    background: var(--grad-clr2);
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding:12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
 }

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .quiz-container {
+      /* Remove display: none; for initial visibility */
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+    }
+
+    .quiz-content {
+      text-align: center;
+    }
+
+    .option-btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .next-btn, .prev-btn {
+      margin-top: 20px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="quiz" class="quiz-container"> <div class="quiz-content">
+    <h2 id="question"></h2>
+    <div id="options" class="options">
+    </div>
+    <button id="prevBtn" class="btn btn-primary prev-btn">Previous</button>
+    <button id="nextBtn" class="btn btn-primary next-btn">Next</button>
+  </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  const questions = [
+    {
+      question: "What is the capital of France?",
+      options: ["Rome", "Paris", "Madrid", "Berlin"],
+      answer: "B"
+    },
+    {
+      question: "What is the largest ocean on Earth?",
+      options: ["Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean"],
+      answer: "A"
+    }
+  ];
+
+  let currentQuestion = 0;
+  const quizContainer = document.getElementById('quiz');
+  const questionElement = document.getElementById('question');
+  const optionsContainer = document.getElementById('options');
+  const prevButton = document.getElementById('prevBtn');
+  const nextButton = document.getElementById('nextBtn');
+
+  function showQuestion() {
+    const currentQ = questions[currentQuestion];
+    questionElement.textContent = `Question ${currentQuestion + 1}: ${currentQ.question}`;
+    optionsContainer.innerHTML = '';
+
+    currentQ.options.forEach((option, index) => {
+      const optionBtn = document.createElement('button');
+      optionBtn.classList.add('btn', 'btn-primary', 'option-btn');
+      optionBtn.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
+      optionBtn.onclick = () => selectOption(String.fromCharCode(65 + index));
+      optionsContainer.appendChild(optionBtn);
+    });
+
+    if (currentQuestion === 0) {
+      prevButton.style.display = 'none';
+    } else {
+      prevButton.style.display = 'inline-block';
+    }
+
+    if (currentQuestion === questions.length - 1) {
+      nextButton.textContent = 'Submit';
+    } else {
+      nextButton.textContent = 'Next';
+    }
+  }
+
+  function selectOption(option) {
+    questions[currentQuestion].selected = option;
+    // You can add visual indication of selected option here if needed
+  }
+
+  function nextQuestion() {
+    if (currentQuestion < questions.length - 1) {
+      currentQuestion++;
+      showQuestion();
+    } else {
+      submitQuiz();
+    }
+  }
+
+  function previousQuestion() {
+    if (currentQuestion > 0) {
+      currentQuestion--;
+      showQuestion();
+    }
+  }
+
+  function submitQuiz() {
+    // You can handle submission logic here
+    console.log('Quiz submitted!');
+  }
+
+  showQuestion();
+</script>
+</body>

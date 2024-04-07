@@ -61,12 +61,24 @@ body {
     background-color: #FFF;
     box-shadow: 25px 30px 55px #5557;
     border-radius: 13px;
-    
     overflow: hidden;
+    display: grid;
+    place-content: center;
+
+
 
 }
-
+.container h1{
+    text-align: center;
+}
+.form-group{
+    font-size: 25px;
+}
 .card {
-    background-color: var(--grad-clr1);
-    color: white;
+    background-color: #FFF;
+    color: var(--grad-clr1);
+    width: 100%;
+}
+.form-check{
+    border: 1px solid;
 }

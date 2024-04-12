@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    <div class="start_btn"><button>Start Quiz</button></div>
+    <div class="start_btn" id="startBtn"><button>Start Quiz</button></div>
 
     <div class="info_box">
         <div class="info_title">
@@ -22,7 +23,7 @@
         </div>
         <div class="buttons">
             <button class="quit">Exit Quiz</button>
-            <button class="restart">Contuniue</button>
+            <button class="restart" id="cont">Contuniue</button>
         </div>
     </div>
     <!-- Quiz Box -->
@@ -65,5 +66,18 @@
             <button class="next_btn">Next</button>
         </footer>
     </div>
+    <!--Result box -->
+    <div class="result_box">
+        <div class="icon"></div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <span>and sorry, You got only <p>2</p> out of <p>5</p></span>
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

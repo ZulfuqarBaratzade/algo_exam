@@ -1,27 +1,16 @@
-var questions = [
-    "What is your favorite color?",
-    "What is your favorite animal?",
-    "What is your favorite food?"
-  ];
+const startBtn = document.getElementById("startBtn")
+const cont = document.getElementById("cont")
+startBtn.addEventListener("click", function() {
+    var startBtn = document.querySelector('.start_btn');
+    var infoBox = document.querySelector('.info_box');
+    startBtn.style.display = 'none';
+    infoBox.style.display = 'block';
+  });
 
-  var currentQuestionIndex = 0; // Index to keep track of the current question
-
-  // Function to display the next question
-  function nextQuestion() {
-    // Check if there are more questions
-    if (currentQuestionIndex < questions.length - 1) {
-      currentQuestionIndex++; // Increment the index to get the next question
-      displayQuestion(); // Display the next question
-    } else {
-      alert("You have reached the end of the questionnaire."); // Alert when there are no more questions
-    }
-  }
-
-  // Function to display the current question
-  function displayQuestion() {
-    var questionElement = document.getElementById("question");
-    questionElement.textContent = questions[currentQuestionIndex];
-  }
-
-  // Display the first question when the page loads
-  displayQuestion();
+cont.addEventListener('click',function(){
+  var info_box = document.querySelector(".info_box");
+  var quiz_box = document.querySelector('.quiz_box');
+  info_box.style.display = 'none';
+  quiz_box.style.display = 'block';
+  
+})

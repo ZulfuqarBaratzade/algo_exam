@@ -31,4 +31,78 @@ startBtn.addEventListener("click", function() {
         }
       }, 1000);
   });
-  
+
+  const questions = [
+    {
+        question: "What does HTML stand for?",
+        options: [
+            "Hype Text Preprocessor",
+            "Hype Text Markup Language",
+            "Hyper Text Multiple Language",
+            "Hyper Tool Multi Language"
+        ],
+        correctAnswer: 1
+    },
+    {
+        question: "What does JS stand for?",
+        options: [
+            "Hype JS Preprocessor",
+            "Hype Text Python Language",
+            "Hyper Text Test Language",
+            "Hyper Tool Multi Language"
+        ],
+        correctAnswer: 0
+    }
+];
+
+let currentQuestion = 0;
+
+function showQuestion() {
+  const questionElement = document.getElementById('question');
+  const optionsContainer = document.getElementById('optionsContainer');
+
+  questionElement.innerText = questions[currentQuestion].question;
+  optionsContainer.innerHTML = '';
+
+  questions[currentQuestion].options.forEach((option, index) => {
+      const optionDiv = document.createElement('div');
+      optionDiv.classList.add('option');
+      optionDiv.innerHTML = `<span>${option}</span>`;
+      optionsContainer.appendChild(optionDiv);
+
+      optionDiv.addEventListener('click', () => {
+          if (index === questions[currentQuestion].correctAnswer) {
+              optionDiv.classList.add('correct');
+          } else {
+              optionDiv.classList.add('incorrect');
+          }
+      });
+  });
+}
+
+const nextBtn = document.getElementById('next_btn');
+const previusBtn=document.getElementById('previous_btn')
+const submitExam=document.getElementById('submit_btn')
+
+nextBtn.addEventListener('click', () => {
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+        showQuestion();
+    } else {
+
+        var submit_btn = document.querySelector('.submit_btn')
+        nextBtn.style.display = "none"
+        submit_btn.style.display = "block"
+        submitExam.addEventListener('click',function(){
+          var resultBox = document.querySelector('.result_box')
+          var quiz_box = document.querySelector('.quiz_box')
+          quiz_box.style.display = "none";
+          resultBox.style.display="block"; //this we
+
+        })
+    }
+});
+
+showQuestion();
+
+

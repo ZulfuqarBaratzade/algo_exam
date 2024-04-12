@@ -6,13 +6,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     
+    
 </head>
 <body>
     <div class="start_btn" id="startBtn"><button>Start Quiz</button></div>
 
     <div class="info_box">
         <div class="info_title">
-            <span>Some Rules of this Quiz</span>
+            <img src="photo.jpg" width="60px">
+            <span>Hi, Zulfuqar Baratzade </span>
+            
         </div>
         <div class="info_list">
             <div class="info">Lorem ipsum dolor sit amet.</div>
@@ -29,45 +32,53 @@
     <!-- Quiz Box -->
     <div class="quiz_box">
         <header>
-            <div class="title">Awesome Quiz Application</div>
+            <div class="title">
+                <img src="photo.jpg" width="50px">
+                <p>Zulfuqar Baratzade</p>
+                
+            </div>
             <div class="timer">
                 <div class="time_text">Time Left</div>
                 <div class="time_sec" id="countdown">90:00</div>
             </div>
         </header>
         <section>
-            <div class="que_text">
-                <span>What doest HTML stand for?</span>
+            <div class="que_text" id="question">
+                <span></span>
                 <i class="bi bi-check2-circle"></i>
             </div>
-            <div class="option_list">
+            <div class="option_list" id="optionsContainer">
                 <div class="option">
-                    <span>Hype Text Preprocessor</span>
-                    <i class="bi bi-check2-circle"></i>
+                    <span></span>
                 </div>
                 <div class="option">
-                    <span>Hype Text Markup Langiage</span>
-                    <i class="bi bi-check2-circle"></i>
+                    <span></span>
                 </div>
                 <div class="option">
-                    <span>Hyper Text Multiple Language</span>
-                    <i class="bi bi-check2-circle"></i>
+                    <span></span>
                 </div>
                 <div class="option">
-                    <span>Hyper Tool Multi Language</span>
-                    <i class="bi bi-check2-circle"></i>
+                    <span></span>
                 </div>
             </div>
+            
+            
         </section>
+        
         <footer>
             <div class="total_que">
-                <span><p>2</p>of<p>5</p>Questions</span>
+                <span><p id="question_num">1</p>of<p id="total_question">5</p>Questions</span>
             </div>
-            <button class="next_btn">Next</button>
+            <div class="period_button">
+                <button class="next_btn" id="next_btn">Next</button>
+                <button class="previous_btn" id="previous_btn">Previous</button>
+                <button class="submit_btn" id="submit_btn">Submit</button>
+
+            </div>
         </footer>
     </div>
     <!--Result box -->
-    <div class="result_box">
+    <div class="result_box" id="result_box">
         <div class="icon"></div>
         <div class="complete_text">You've completed the Quiz!</div>
         <div class="score_text">

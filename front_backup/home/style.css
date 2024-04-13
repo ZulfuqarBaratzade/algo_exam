@@ -278,7 +278,7 @@ footer .next_btn{
     outline:none;
     color: #fff;
     background: var(--grad-clr2);
-    border-radius: 5px;
+    /* border-radius: 5px; */
     border: 1px solid var(--grad-clr2);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -296,7 +296,7 @@ footer .previous_btn{
     outline:none;
     color: #fff;
     background: var(--grad-clr2);
-    border-radius: 5px;
+    /* border-radius: 5px; */
     border: 1px solid var(--grad-clr2);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -317,7 +317,7 @@ footer .submit_btn{
     outline:none;
     color: #fff;
     background: var(--grad-clr2);
-    border-radius: 5px;
+    /* border-radius: 5px; */
     border: 1px solid var(--grad-clr2);
     cursor: pointer;
     transition: all 0.3s ease;

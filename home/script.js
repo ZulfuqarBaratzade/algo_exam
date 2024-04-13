@@ -52,7 +52,18 @@ const questions = [
       "Hyper Tool Multi Language"
     ],
     correctAnswer: 0
+  },
+  {
+    question: "What does JS stand for?",
+    options: [
+      "Hype JS Preprocessor",
+      "Hype Text Python Language",
+      "Hyper Text Test Language",
+      "Hyper Tool Multi Language"
+    ],
+    correctAnswer: 0
   }
+
 ];
 
 let currentQuestion = 0;
@@ -60,24 +71,34 @@ let currentQuestion = 0;
 function showQuestion() {
   const questionElement = document.getElementById('question');
   const optionsContainer = document.getElementById('optionsContainer');
+  const quizSection = document.querySelector('.quiz_box section');
 
-  questionElement.innerText = questions[currentQuestion].question;
-  optionsContainer.innerHTML = '';
+  // Geçiş animasyonu için mevcut bölümü gizle
+  quizSection.classList.add('hidden');
 
-  questions[currentQuestion].options.forEach((option, index) => {
-    const optionDiv = document.createElement('div');
-    optionDiv.classList.add('option');
-    optionDiv.innerHTML = `<span>${option}</span>`;
-    optionsContainer.appendChild(optionDiv);
+  setTimeout(() => {
+    // Soruyu ve seçenekleri göster
+    questionElement.innerText = questions[currentQuestion].question;
+    optionsContainer.innerHTML = '';
 
-    optionDiv.addEventListener('click', () => {
-      if (index === questions[currentQuestion].correctAnswer) {
-        optionDiv.classList.add('correct');
-      } else {
-        optionDiv.classList.add('incorrect');
-      }
+    questions[currentQuestion].options.forEach((option, index) => {
+      const optionDiv = document.createElement('div');
+      optionDiv.classList.add('option');
+      optionDiv.innerHTML = `<span>${option}</span>`;
+      optionsContainer.appendChild(optionDiv);
+
+      optionDiv.addEventListener('click', () => {
+        if (index === questions[currentQuestion].correctAnswer) {
+          optionDiv.classList.add('correct');
+        } else {
+          optionDiv.classList.add('incorrect');
+        }
+      });
     });
-  });
+
+    // Geçiş animasyonu için yeni bölümü göster
+    quizSection.classList.remove('hidden');
+  }, 300); // 300ms'lik bir gecikme ekleyerek animasyonu bekletiyoruz
 }
 
 const nextBtn = document.getElementById('next_btn');
@@ -87,10 +108,12 @@ const submitExam = document.getElementById('submit_btn')
 nextBtn.addEventListener('click', () => {
   
   currentQuestion++;
+  
   if (currentQuestion < questions.length) {
     var previous_btn = document.querySelector(".previous_btn")
     showQuestion();
     previous_btn.style.display='block'
+    updateQuestionNumber()
   } else {
     var previous_btn = document.querySelector(".previous_btn")
     var submit_btn = document.querySelector('.submit_btn')
@@ -110,6 +133,7 @@ previusBtn.addEventListener('click', () => {
   if (currentQuestion > 0) {
     currentQuestion--; 
     showQuestion();
+    updateQuestionNumber()
     var previous_btn = document.querySelector(".previous_btn")
     var submit_btn = document.querySelector('.submit_btn')
     nextBtn.style.display = "block"
@@ -118,6 +142,16 @@ previusBtn.addEventListener('click', () => {
   }
 });
 
+const questionNumElement = document.getElementById('question_num');
+const totalQuestionElement = document.getElementById('total_question');
+totalQuestionElement.textContent = questions.length;
+function updateQuestionNumber() {
+    const currentQuestionNumber = currentQuestion + 1;
+    const totalQuestions = questions.length;
+    
+    questionNumElement.textContent = currentQuestionNumber;
+    totalQuestionElement.textContent = totalQuestions;
+}
+
+
 showQuestion();
-
-

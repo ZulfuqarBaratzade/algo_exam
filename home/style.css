@@ -118,8 +118,16 @@ body{
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 25px 30px 55px #5557;
-
 }
+.quiz_box section {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.quiz_box section.hidden {
+    opacity: 0;
+}
+
 .quiz_box header{
     position: relative;
     z-index: 99;

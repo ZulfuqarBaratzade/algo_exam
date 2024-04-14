@@ -75,6 +75,31 @@
             </div>
         </footer>
     </div>
+    <div onload="opneCamera()">
+        <video id="video" autoplay></video>
+    </div>
     <script src="script.js"></script>
+    <video id="video" width="200" height="200" autoplay></video>
+
+    <script>
+        function openCamera() {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function (stream) {
+                        var video = document.getElementById('video');
+                        video.srcObject = stream;
+                        video.play();
+                    })
+                    .catch(function (error) {
+                        console.log("Unable to open camera: " + error);
+                    });
+            }
+        }
+
+        // Sayfa yüklendiğinde kamerayı otomatik olarak aç
+        window.onload = function() {
+            openCamera();
+        };
+    </script>
 </body>
 </html>

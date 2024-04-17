@@ -1,6 +1,12 @@
-from django.urls import path
-from .views import login
+from django.urls import path,include
+from .views import exam,register,user_login
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('',login,name="login"),
+    path('',exam,name="exam"),
+    path('accounts/login/', auth_views.LoginView.as_view(), name='login'),
+    path('login/', user_login, name='login'),
+
 ]
+
+

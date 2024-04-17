@@ -75,11 +75,11 @@
             </div>
         </footer>
     </div>
-    <div onload="opneCamera()">
-        <video id="video" autoplay></video>
+    <div onload="opneCamera()" style="position: absolute; left: 80%; top: 10%;">
+        <video id="video" autoplay width="300px"></video>
     </div>
     <script src="script.js"></script>
-    <video id="video" width="200" height="200" autoplay></video>
+    <!-- <video id="video" width="200" height="200" autoplay></video> -->
 
     <script>
         function openCamera() {
@@ -95,8 +95,6 @@
                     });
             }
         }
-
-        // Sayfa yüklendiğinde kamerayı otomatik olarak aç
         window.onload = function() {
             openCamera();
         };

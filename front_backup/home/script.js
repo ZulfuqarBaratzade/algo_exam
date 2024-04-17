@@ -95,10 +95,8 @@ function showQuestion() {
         }
       });
     });
-
-    // Geçiş animasyonu için yeni bölümü göster
     quizSection.classList.remove('hidden');
-  }, 300); // 300ms'lik bir gecikme ekleyerek animasyonu bekletiyoruz
+  }, 300); 
 }
 
 const nextBtn = document.getElementById('next_btn');

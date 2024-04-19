@@ -34,9 +34,8 @@
     <div class="quiz_box">
         <header>
             <div class="title">
-                <img src="photo.jpg" width="50px">
+                <img src="{% get_media_prefix %}photo.jpg" width="50px">
                 <p>Zulfuqar Baratzade</p>
-                
             </div>
             <div class="timer">
                 <div class="time_text">Time Left</div>
@@ -78,5 +77,23 @@
     </div>
    
     <script src="{% static 'script.js' %}"></script>
+    <!-- <script>
+        function openCamera() {
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function (stream) {
+                        var video = document.getElementById('video');
+                        video.srcObject = stream;
+                        video.play();
+                    })
+                    .catch(function (error) {
+                        console.log("Unable to open camera: " + error);
+                    });
+            }
+        }
+        window.onload = function() {
+            openCamera();
+        };
+    </script> -->
 </body>
 </html>
